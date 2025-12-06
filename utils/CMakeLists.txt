@@ -7,4 +7,4 @@ include_directories(../lib/include)
 
 add_executable(main main.c)
 
-target_link_libraries(main ${CMAKE_SOURCE_DIR}/lib/lib.a)
+target_link_libraries(main ${CMAKE_SOURCE_DIR}/lib/lib/lib.a)

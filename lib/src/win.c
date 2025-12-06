@@ -16,7 +16,7 @@ int fork_command(const char *command, char *const arg[], int arg_len)
     strcat(cmdline, command);
     strcat(cmdline, " ");
 
-    for (int i = 1; arg[i] != NULL; i++) {
+    for (int i = 0; i < arg_len; i++) {
         strcat(cmdline, arg[i]);
         strcat(cmdline, " ");
     }

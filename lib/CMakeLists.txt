@@ -32,4 +32,12 @@ set_target_properties(lib PROPERTIES
     PREFIX ""
 )
 
+install(TARGETS lib
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+)
+
+install(DIRECTORY include/ DESTINATION include)
+
 target_link_libraries(lib ${EXTRA_LIBS})
