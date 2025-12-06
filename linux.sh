@@ -1,24 +1,19 @@
 cd ./lib
-cmake -B build -DCMAKE_ARCHIVE_OUTPUT_DIRECTORY=../bin
-cd build
-make
-mkdir ../../utils/lib
-cp ../bin/lib.a ../../utils/lib/
+cmake -B build
+cmake --build build
+cmake --install build --prefix ../utils/lib
 
-cd ../../counter
+cd ../counter
 cmake -B build -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=../bin
-cd build
-make
+cmake --build build
 
-cd ../..
+cd ..
 relative_path="./counter/bin"
 absolute_path=$(readlink -f "$relative_path")
 export PATH="$PATH:$absolute_path"
 
-cd ./utils
+cd utils
 cmake -B build -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=../bin
-cd build
-make
+cmake --build build
 
-cd ../bin
-./main
+./bin/main
